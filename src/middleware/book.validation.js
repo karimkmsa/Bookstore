@@ -24,7 +24,11 @@ export const createBookValidation = [
     .notEmpty()
     .withMessage("Published date is required")
     .isISO8601()
-    .withMessage("Date must be in YYYY-MM-DD format")
+    .withMessage("Date must be in YYYY-MM-DD format"),
+    body("user")
+  .optional()
+  .isMongoId()
+  .withMessage("Invalid user id")
 
 ];
 export const updateBookValidation = [
@@ -47,6 +51,10 @@ export const updateBookValidation = [
   body("publishedDate")
     .optional()
     .isISO8601()
-    .withMessage("Invalid date format")
+    .withMessage("Invalid date format"),
+ body("user")
+  .optional()
+  .isMongoId()
+  .withMessage("Invalid user id")
 
 ];

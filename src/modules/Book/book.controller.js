@@ -57,8 +57,7 @@ export const getAllBooks = async (req, res) => {
    try {
 
       const apiFeatures = new ApiFeatures(
-         bookModel.find(),
-         req.query
+         bookModel.find().populate("user"), req.query
       )
          .search()
          .filter()
